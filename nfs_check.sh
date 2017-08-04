@@ -50,7 +50,7 @@ if [ `id -u` -eq 0 ]; then
 						echo "Load finished.."
 						echo "Opening Path /mnt..."
 						sleep 3
-						nautilus /mnt
+						gnome-terminal --working-directory=/mnt
 						echo
 					fi
 				done
