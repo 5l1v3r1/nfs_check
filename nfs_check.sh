@@ -1,6 +1,5 @@
 clear
 ip=$1
-
 echo
 echo "o   o o--o  o-o       o             o    "
 echo "|\  | |    |          |             | /  "
@@ -9,7 +8,6 @@ echo "|  \| |        | |    |  | |-' |    | \  "
 echo "o   o o    o--o   o-o o  o o-o  o-o o  o v0.1"
                                          
 if [ `id -u` -eq 0 ]; then
-	#212.118.147.229
 	if [ -n "$ip" ]; then
 		echo
 		echo -e "\e[40;38;5;82m RPC \e[30;48;5;82m INFO \e[0m"
@@ -33,7 +31,7 @@ if [ `id -u` -eq 0 ]; then
 			echo -e "\e[40;38;5;82m MOUNT \e[30;48;5;82m NOW \e[0m"
 			echo
 
-			list=(`showmount -e 212.118.147.229 | grep '*' |awk '{print $1}'`)
+			list=(`showmount -e $ip | grep '*' |awk '{print $1}'`)
 			cont=$(showmount -e $ip | grep '*' |awk '{print $1}'|wc -l)
 			path=0
 			for i in $(seq 1 $cont)
@@ -48,7 +46,7 @@ if [ `id -u` -eq 0 ]; then
 	else
 		echo
 		echo -e "\e[92mUsage: bash script.sh ip"
-		echo -e "\e[92mExample: bash script.sh 212.118.147.229"
+		echo -e "\e[92mExample: bash script.sh 212.118.150.154"
 		exit;
 	fi
 else
